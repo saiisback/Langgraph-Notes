@@ -3,15 +3,23 @@ from langchain_core.messages import HumanMessage
 from langchain_openai import ChatOpenAI
 from langgraph.graph import StateGraph, START, END
 from dotenv import load_dotenv # used to store secret stuff like API keys or configuration values
+import os
 
 load_dotenv()
 
-pip install langgraph langchain-core langchain-openai langchain-community langchain-chroma chromadb pypdf python-dotenv
+# OpenRouter configuration - using OpenAI models through OpenRouter
+openrouter_base_url = "https://openrouter.ai/api/v1"
+openrouter_api_key = ""
 
 class AgentState(TypedDict):
     messages: List[HumanMessage]
 
-llm = ChatOpenAI(model="gpt-4o")
+llm = ChatOpenAI(
+    model="openai/gpt-oss-20b:free",
+    base_url=openrouter_base_url,
+    api_key=openrouter_api_key,
+    
+)
 
 def process(state: AgentState) -> AgentState:
     response = llm.invoke(state["messages"])
