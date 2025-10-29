@@ -1,0 +1,8 @@
+!pip install python-dotenv
+!pip install langgraph
+!pip install langchain-core
+!pip install langchain-openai
+!pip install langchain-community
+!pip install langchain-chroma
+!pip install chromadb
+!pip install pypdf
