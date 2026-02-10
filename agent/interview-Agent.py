@@ -14,16 +14,14 @@ openrouter_api_key = ""
 
 # Create two LLM instances for the interview
 interviewer_llm = ChatOpenAI(
-    model="openai/gpt-oss-20b:free",
+    model="gpt-4o-mini",
     temperature=0,
-    base_url=openrouter_base_url,
     api_key=openrouter_api_key,
 )
 
 interviewee_llm = ChatOpenAI(
-    model="openai/gpt-oss-20b:free", 
+    model="gpt-4o-mini", 
     temperature=0,
-    base_url=openrouter_base_url,
     api_key=openrouter_api_key,
 )
 
